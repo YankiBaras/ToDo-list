@@ -5,6 +5,37 @@
     <title>ToDo list</title>
 </head>
 <body>
-    
+    <h1>ToDo</h1>
+    <div>
+        <input id="mission" type="text" placeholder="Task">
+        <button id="add">add</button>
+    </div>
+
+    <div id="myDiv">
+    </div>
+
+    <script>
+        const myDiv = document.getElementById('myDiv');
+        let counter = 0;
+
+        function add() {
+            counter++;
+        }
+
+        document.querySelector('#add').onclick = function() {
+            div = document.createElement('div');
+            const task = document.querySelector('#mission').value;
+            let check = document.createElement('input');
+            check.type= "checkbox";
+            check.id = `${counter}`;
+            let label = document.createElement('label');
+            label.htmlFor = `${counter}`;
+            label.appendChild(document.createTextNode(task));
+            div.appendChild(check);
+            div.appendChild(label);
+            myDiv.appendChild(div);
+            add();
+        }
+    </script>
 </body>
 </html>
