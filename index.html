@@ -6,10 +6,8 @@
 </head>
 <body>
     <h1>ToDo</h1>
-    <div>
         <input id="mission" type="text" placeholder="Task">
         <button id="add">add</button>
-    </div>
 
     <div id="myDiv">
     </div>
@@ -17,6 +15,7 @@
     <script>
         const myDiv = document.getElementById('myDiv');
         let counter = 0;
+        let chekbox = document.querySelectorAll("input[name=checkbox]");
 
         function add() {
             counter++;
@@ -27,15 +26,32 @@
             const task = document.querySelector('#mission').value;
             let check = document.createElement('input');
             check.type= "checkbox";
+            check.name = "checkbox";
             check.id = `${counter}`;
             let label = document.createElement('label');
             label.htmlFor = `${counter}`;
+            check.addEventListener('change', function() {
+                if (check.checked === true) {
+                    label.style.textDecoration = "line-through";
+                } else {
+                    label.style.textDecoration = 'none';
+                }
+            })
+            
+            onclick = function() {
+               
+                }
+                   
+            
             label.appendChild(document.createTextNode(task));
             div.appendChild(check);
             div.appendChild(label);
             myDiv.appendChild(div);
             add();
         }
+      
+
+
     </script>
 </body>
 </html>
